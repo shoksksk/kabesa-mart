@@ -1,0 +1,566 @@
+/* CSS for Nav bar , and footer */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+}
+
+body {
+    font-family: 'Inter', Helvetica, Arial, sans-serif;
+    background-color: #fffefa;
+    color: #1a1a1a;
+}
+
+/* ---------- NAVBAR ---------- */
+nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fffefa;
+    padding: clamp(0.6rem, 1.2vw, 1rem) clamp(1rem, 3vw, 3rem);
+    border-bottom: 1px solid #eee2c8;
+}
+
+.nav-top {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    gap: clamp(1rem, 2.5vw, 2.5rem);
+    width: 100%;
+    position: relative;
+    
+}
+
+
+/* ---------- LOGO ---------- */
+
+.nav-logo {
+    height: clamp(65px, 7vw, 110px);
+    width: auto;
+    margin-top: clamp(-30px, -2vw, -10px);
+    margin-bottom: clamp(-20px, -1.5vw, -8px);
+    margin-left: clamp(-10px, -0.5vw, 0px);
+    margin-right: clamp(-10px, -0.5vw, 0px);
+}
+
+
+/* ---------- SEARCH ROW ---------- */
+
+.nav-search-row {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: clamp(0.5rem, 1vw, 1rem);
+}
+
+
+/* search bar */
+
+.nav-search {
+    width: min(100%, 1000px);
+    padding: clamp(0.7rem, 1vw, 0.9rem)
+             clamp(1rem, 2vw, 2rem)
+             clamp(0.7rem, 1vw, 0.9rem)
+             clamp(2.25rem, 3vw, 2.75rem);
+
+    border: 1px solid #e5d9b6;
+    border-radius: 6px;
+
+    font-family: 'Inter', Helvetica, Arial, sans-serif;
+    font-size: clamp(0.8rem, 1vw, 0.85rem);
+
+    color: #1a1a1a;
+    background-color: #fdf8ee;
+
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2384785a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'%3E%3C/circle%3E%3Cline x1='21' y1='21' x2='16.65' y2='16.65'%3E%3C/line%3E%3C/svg%3E");
+
+    background-repeat: no-repeat;
+    background-position: 0.9rem center;
+    background-size: 16px 16px;
+
+    margin-bottom: 10px;
+    margin-top: 2px;
+}
+
+.nav-search::placeholder {
+    color: #84785a;
+}
+
+
+/* ---------- CART AND PROFILE ICONS ---------- */
+
+.shop-icon {
+    height: clamp(24px, 2.2vw, 30px);
+    width: clamp(24px, 2.2vw, 30px);
+    transform: scale(1.6);
+    margin-bottom: 0.25rem;
+}
+
+.profile-icon {
+    height: clamp(30px, 2.8vw, 38px);
+    width: clamp(30px, 2.8vw, 38px);
+}
+
+.shop-icon:hover {
+    transform: scale(2.0);
+    cursor: pointer;
+}
+
+.profile-icon:hover {
+    transform: scale(1.3);
+    cursor: pointer;
+}
+
+
+/* ---------- NAV BAR LINKS ---------- */
+
+.nav-top a,
+.nav-links > .nav-item > p {
+    position: relative;
+    display: inline-block;
+
+    color: #1a1a1a;
+    font-weight: 500;
+
+    font-size: clamp(0.85rem, 1.2vw, 1.05rem);
+
+    padding: 0.5rem 0.1rem;
+
+    cursor: pointer;
+    text-decoration: none;
+
+    transition: color 0.25s ease;
+}
+
+
+/* for the underline */
+
+.nav-top a::after,
+.nav-links > .nav-item > p::after {
+    content: "";
+
+    position: absolute;
+    left: 0;
+    bottom: 0;
+
+    width: 100%;
+    height: 2px;
+
+    background-color: #b8860b;
+
+    transform: scaleX(0);
+
+    transition: transform 0.25s ease;
+}
+
+.nav-top a:hover::after,
+.nav-links > .nav-item > p:hover::after {
+    transform: scaleX(1);
+}
+
+.nav-top a:hover,
+.nav-links > .nav-item > p:hover {
+    color: #b8860b;
+}
+
+.nav-links > .nav-item:hover > p,
+.nav-links > .nav-item:hover > a {
+    color: #b8860b;
+}
+
+.header {
+    position: relative;
+}
+
+
+/* ---------- NAV LINKS ---------- */
+
+.nav-links {
+    display: flex;
+    align-items: stretch;
+    align-self: stretch;
+
+    margin: 0 auto 0 clamp(-1.25rem, -1vw, -0.5rem);
+}
+
+.nav-item {
+    display: flex;
+    align-items: flex-end;
+    align-self: stretch;
+
+    padding: 0 clamp(0.6rem, 1.25vw, 1.25rem);
+
+    border-bottom: none;
+}
+
+
+/* ------------------------------------------ 
+   DROPDOWN (subnav)
+------------------------------------------ */
+
+/* hidden by default with max-height 0, then it slides open on hover */
+
+.subnav {
+    position: absolute;
+
+    top: 100%;
+    left: 50%;
+    right: auto;
+
+    width: 100vw;
+
+    margin-left: -50vw;
+
+    overflow: hidden;
+
+    max-height: 0;
+
+    background-color: #fff;
+
+    z-index: 100;
+
+    transition: max-height 0.2s ease-out;
+
+    padding-top: 4px;
+    margin-top: -4px;
+
+    pointer-events: none;
+}
+
+
+/* open the dropdown when hovering the link
+   (so it doesn't close when you move the mouse down into it) */
+
+.nav-item p:hover + .subnav,
+.nav-item a:hover + .subnav,
+.subnav:hover {
+    max-height: 320px;
+    
+
+    border-bottom: 3px solid #eee2c8;
+
+    pointer-events: auto;
+
+    z-index: 200;
+}
+
+
+/* ---------- SUBNAV CONTENT ---------- */
+
+.subnav-content {
+    width: min(100%, 1200px);
+
+    margin: 0 auto;
+
+    padding: 2rem clamp(1rem, 3vw, 1.5rem) 2rem
+             clamp(2rem, 10vw, 150px);
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    justify-content: flex-start;
+
+    gap: clamp(1.5rem, 5vw, 5rem);
+}
+
+.subnav-item {
+    display: block;
+
+    width: clamp(65px, 7vw, 90px);
+
+    text-align: center;
+
+    cursor: pointer;
+
+    text-decoration: none;
+}
+
+.subnav-item img {
+    width: 100%;
+
+    max-width: 90px;
+
+    object-fit: cover;
+    object-position: top;
+
+    border-radius: 4px;
+
+    margin-bottom: 0.75rem;
+
+    transition:
+        transform 0.25s ease,
+        filter 0.25s ease;
+}
+
+.subnav-item:hover img {
+
+    /* image lifts up and glows gold on hover */
+
+    transform: translateY(-4px);
+
+    filter:
+        drop-shadow(0 0 8px #d4af37)
+        drop-shadow(0 0 8px #d4af37);
+}
+
+.subnav-item p {
+    font-size: clamp(0.75rem, 1vw, 0.9rem);
+
+    font-weight: 500;
+
+    color: #1a1a1a;
+}
+
+.subnav-item:hover p {
+    color: #b8860b;
+}
+
+
+/* ---------- PAGE (used for only bluring while hovering) ---------- */
+
+.page-content {
+    transition: filter 0.3s ease;
+}
+
+
+/* blur the page behind the dropdown when it's open */
+
+body:has(.nav-item p:hover + .subnav) .page,
+body:has(.nav-item a:hover + .subnav) .page,
+body:has(.subnav:hover) .page {
+    filter: blur(2px);
+}
+
+
+/* ---------- ARTICLE ---------- */
+
+article {
+    width: min(100%, 1200px);
+
+    margin: 0 auto;
+
+    padding: 0 clamp(1rem, 2vw, 1.5rem);
+}
+
+
+/* ---------- TRENDING ICON ---------- */
+
+.trending-icon {
+    height: 2em;
+
+    width: auto;
+
+    vertical-align: middle;
+
+    margin-left: 0.4rem;
+}
+
+
+/* ---------- FOOTER ---------- */
+
+footer {
+    background-color: #1a1a1a;
+
+    color: #cccccc;
+
+    text-align: left;
+
+    padding: clamp(1.5rem, 3vw, 2rem);
+
+    font-size: clamp(0.85rem, 1vw, 1rem);
+}
+
+.footer-logo {
+    height: clamp(40px, 4vw, 50px);
+
+    width: auto;
+
+    margin-bottom: 1.25rem;
+}
+
+footer p {
+    margin-bottom: 0.75rem;
+}
+
+footer h4 {
+    color: #ffffff;
+
+    font-size: clamp(1rem, 1.2vw, 1.1rem);
+
+    margin-bottom: 0.75rem;
+}
+
+footer a {
+    color: #cccccc;
+
+    text-decoration: none;
+
+    transition: color 0.25s ease;
+}
+
+footer a:hover {
+    color: #d4af37;
+}
+
+.footer-copyright {
+    margin-top: 1.5rem;
+
+    color: #888888;
+
+    font-size: clamp(0.75rem, 0.9vw, 0.85rem);
+}
+
+
+/* --------------------------------------------------------------------------------------------------
+--------------------------------- MEDIA SECTION -----------------------------------------------------
+-------------------------------------------------------------------------------------------------- */
+
+
+/* ---------- MOBILE ---------- */
+
+@media (max-width: 768px) {
+
+    html {
+        font-size: 14px;
+    }
+
+    nav {
+        padding: 0.5rem 0.75rem;
+    }
+
+    .nav-top {
+        flex-wrap: wrap;
+
+        align-items: center;
+
+        gap: 0.4rem 0.75rem;
+    }
+
+    .nav-logo {
+        height: 54px;
+
+        margin: -6px 0;
+    }
+
+    .nav-top > a:has(.shop-icon) {
+        margin-left: auto;
+    }
+
+    .shop-icon {
+        height: 24px;
+        width: 24px;
+
+        transform: scale(1.2);
+    }
+
+    .profile-icon {
+        height: 30px;
+        width: 30px;
+    }
+
+    .shop-icon:hover,
+    .profile-icon:hover {
+        transform: none;
+    }
+
+
+    /* ---------- MOBILE NAV LINKS ---------- */
+
+    .nav-links {
+        order: 3;
+
+        width: 100%;
+
+        margin: 0;
+
+        flex-wrap: wrap;
+    }
+
+    .nav-item:first-child {
+        display: none;
+    }
+
+    .nav-item {
+        width: 33.33%;
+
+        justify-content: center;
+
+        padding: 0;
+    }
+
+    .nav-top a,
+    .nav-links > .nav-item > p {
+        font-size: 0.85rem;
+
+        padding: 0.4rem 0.1rem;
+    }
+
+
+    /* ---------- MOBILE DROPDOWN ---------- */
+
+    .subnav {
+        left: 0;
+
+        right: 0;
+
+        width: auto;
+
+        margin: 0;
+    }
+
+    .nav-item p:hover + .subnav,
+    .subnav:hover {
+        max-height: 400px;
+    }
+
+    .subnav-content {
+        padding: 0.75rem 0.5rem;
+
+        gap: 1rem;
+
+        justify-content: center;
+    }
+
+    .subnav-item {
+        width: 64px;
+    }
+
+    .subnav-item p {
+        font-size: 0.8rem;
+    }
+
+
+    /* ---------- MOBILE SEARCH ---------- */
+
+    .nav-search {
+        font-size: 16px;
+
+        padding:
+            0.6rem
+            0.75rem
+            0.6rem
+            2.25rem;
+    }
+
+
+    /* ---------- MOBILE ARTICLE ---------- */
+
+    article {
+        padding: 0 1rem;
+    }
+
+
+    /* ---------- MOBILE FOOTER ---------- */
+
+    footer {
+        padding: 1.5rem 1rem;
+
+        font-size: 0.85rem;
+    }
+}

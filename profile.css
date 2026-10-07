@@ -1,0 +1,254 @@
+/* ---------------- CSS FOR PROFILE / ACCOUNT PAGE ---------------- */
+
+
+/* ---------- PAGE ARTICLE ---------- */
+
+article {
+    width: min(100%, 1200px);
+
+    margin: 0 auto;
+
+    padding: 0 clamp(0.75rem, 2vw, 1.5rem);
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+}
+
+
+/* ---------- PROFILE PAGE TITLE ---------- */
+
+article h1 {
+    text-align: center;
+
+    margin-bottom: clamp(0.75rem, 1.5vw, 1rem);
+
+    margin-top: clamp(0.75rem, 1.5vw, 1rem);
+
+    font-family: 'Playfair Display', serif;
+
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+}
+
+article h1 img {
+    width: clamp(35px, 4vw, 50px);
+
+    height: clamp(35px, 4vw, 50px);
+
+    vertical-align: middle;
+}
+
+
+/* ---------- ACCOUNT CONTAINER ---------- */
+
+.account {
+    display: flex;
+
+    align-items: stretch;
+
+    flex-wrap: wrap;
+
+    gap: clamp(1rem, 2vw, 1.5rem);
+
+    width: 100%;
+}
+
+
+/* ---------- ACCOUNT INFORMATION CARD ---------- */
+
+.Account_info {
+    flex: 1 1 400px;
+
+    margin:
+        clamp(1rem, 2vw, 2rem)
+        0;
+
+    padding: clamp(1rem, 2.5vw, 2rem);
+
+    border: 1px solid #f0e6c8;
+
+    border-radius: 16px;
+
+    box-shadow:
+        0 -2px 12px -6px rgba(0, 0, 0, 0.25),
+        0 2px 16px -4px rgba(0, 0, 0, 0.2);
+
+    transition:
+        box-shadow 0.25s ease,
+        border-color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.Account_info:hover {
+    box-shadow:
+        0 6px 28px rgba(212, 175, 55, 0.15);
+
+    border-color: #d4af37;
+}
+
+
+/* ---------- PROFILE IMAGE ---------- */
+
+.profile_card {
+    display: flex;
+
+    justify-content: center;
+
+    margin-bottom: clamp(1rem, 2vw, 1.5rem);
+}
+
+.profile_card img {
+    width: clamp(75px, 10vw, 100px);
+
+    height: clamp(75px, 10vw, 100px);
+
+    border-radius: 50%;
+
+    border: 3px solid #d4af37;
+
+    box-shadow:
+        0 2px 10px rgba(212, 175, 55, 0.25);
+
+    transition:
+        transform 0.25s ease;
+}
+
+.profile_card img:hover {
+    transform: scale(1.2);
+}
+
+
+/* ---------- FORM LABEL / TEXT ---------- */
+
+.Account_info p {
+    margin: 0 0 0.4rem;
+
+    color: #9b6f1b;
+
+    font-size: clamp(0.8rem, 1vw, 0.95rem);
+}
+
+
+/* ---------- INPUTS AND SELECT ---------- */
+
+.Account_info input[type="text"],
+.Account_info select {
+    width: 100%;
+
+    padding:
+        clamp(0.6rem, 1vw, 0.7rem)
+        clamp(0.7rem, 1.2vw, 0.9rem);
+
+    margin-bottom: clamp(0.8rem, 1.5vw, 1.1rem);
+
+    border: 1px solid #ecdfb8;
+
+    border-radius: 10px;
+
+    font-size: clamp(0.85rem, 1vw, 0.95rem);
+
+    background-color: #fffefa;
+
+    color: #1a1a1a;
+
+    outline: none;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+/* ---------- INPUT FOCUS ---------- */
+
+.Account_info input[type="text"]:focus,
+.Account_info select:focus {
+    border-color: #d4af37;
+
+    box-shadow:
+        0 0 0 3px rgba(212, 175, 55, 0.12);
+}
+
+
+/* ---------- INPUT PLACEHOLDER ---------- */
+
+.Account_info input[type="text"]::placeholder {
+    color: #c9b98a;
+}
+
+
+/* ---------- SAVE / SUBMIT BUTTON ---------- */
+
+article > button {
+    display: block;
+
+    width: clamp(100px, 12vw, 120px);
+
+    height: clamp(38px, 4vw, 42px);
+
+    font-size: clamp(0.85rem, 1vw, 1rem);
+
+    margin-top: 0.1rem;
+
+    margin-bottom: clamp(1.5rem, 3vw, 2rem);
+
+    background: #d4af37;
+
+    color: #fff;
+
+    border: none;
+
+    border-radius: 13px;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+article > button:hover {
+    background-color: #3a1a4a;
+
+    transform: scale(1.04);
+
+    box-shadow:
+        0 5px 15px rgba(58, 26, 74, 0.2);
+}
+
+article > button:active {
+    transform: scale(0.98);
+}
+
+
+
+@media (min-width: 1400px) {
+
+    article {
+        max-width: 1300px;
+    }
+
+    .account {
+        gap: 2rem;
+    }
+}
+
+
+@media (max-width: 900px) {
+
+    article {
+        padding: 0 1rem;
+    }
+
+    .account {
+        gap: 1rem;
+    }
+
+    .Account_info {
+        flex: 1 1 350px;
+    }
+}
+

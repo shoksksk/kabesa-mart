@@ -1,0 +1,56 @@
+
+:root {
+    --cart-gold: #c9a227;
+    --cart-gold-dark: #a8841a;
+    --cart-white: #ffffff;
+}
+
+.cart {
+    max-width: 700px;
+    margin: 60px auto;
+    padding: 50px 30px;
+    background: var(--cart-white);
+    border: 1.5px solid var(--cart-gold);
+    border-radius: 14px;
+    box-shadow: 0 8px 28px rgba(201, 162, 39, 0.18);
+    text-align: center;
+    min-height: 320px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.cart-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--cart-gold-dark);
+    margin: 0;
+    letter-spacing: 0.5px;
+}
+
+.cart-divider {
+    width: 70px;
+    height: 3px;
+    background: var(--cart-gold);
+    border-radius: 2px;
+    margin: 16px 0 28px;
+}
+
+.cart-empty {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 500;
+    color: #000;
+    opacity: 0.45;
+    margin: 0 0 6px;
+}
+
+.cart-empty-sub {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    color: #000;
+    opacity: 0.35;
+    margin: 0;
+}
